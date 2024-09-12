@@ -18,6 +18,7 @@ class TestCase:
         run_test_passed_to_this_test_case = getattr(self, self.test_to_run)
         run_test_passed_to_this_test_case()
         self.tear_down()
+        return TestResult()
 
 
 class WasRun(TestCase):
@@ -26,11 +27,9 @@ class WasRun(TestCase):
         super().__init__(test_to_run)
 
     def setup(self):
-        # insert set up steps here
         self.log = "setup_OK|"
 
     def test_method(self):
-        # run tests here
         self.log = self.log + "test_method_OK|"
 
     def tear_down(self):
@@ -47,6 +46,14 @@ class TestCaseTest(TestCase):
         # runs silent == no output pass tracepoint can be run in debug
         assert "setup_OK|test_method_OK|tear_down_OK|"  == self.test.log
 
+    def test_result(self):
+        test = WasRun("test_method")
+        result = test.run()
+        assert("1 run, 0 failed" == result.summary())
 
+class TestResult:
+    
+    def summary(self):
+        return "1 run, 0 failed"
 
 TestCaseTest("test_passed_to_this_test_case").run()
