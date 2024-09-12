@@ -1,16 +1,27 @@
+import sys
 import traceback
 from typing import Optional
 import logging
 
+from xunit.bootstrap.unit_testing_helper import TestUtils
+
 logging.basicConfig(level=logging.INFO)
 
 class TestFailedException(Exception):
-    def __init__(self, message):
-        super().__init__(message)
+    pass
+
+class SetupFailedException(Exception):
+    pass
 
 class TestCase:
     def __init__(self, test_to_run):
         self.test_to_run: str = test_to_run
+        # at present the only way to know tests on this test framework are working is by showing assertion errors
+        self.catch_assertion_errors: bool = True
+        if self.catch_assertion_errors:
+            TestUtils.warning_message("Assertion Errors used to test framework are being ignored with the below:"
+                                      "\nself.catch_assertion_errors: bool = True\n")
+
 
     def setup(self):
         # this is empty to calls from all TestCaseTest instances keeping run simple.
@@ -23,16 +34,28 @@ class TestCase:
     def run(self):
         result = TestResult()
         result.test_started()
-        self.setup()
         try:
+            self.setup() # any exceptions in self setup must prop as setupfailedexceptions independent tests
             run_test_passed_to_this_test_case = getattr(self, self.test_to_run)
             run_test_passed_to_this_test_case()
-        except TestFailedException as e:
+        except SetupFailedException as e:
             logging.info(f" @: {str(e)}\n Traceback: {traceback.format_exc(0)}")
+            result.test_failed()
+            self.tear_down()
+            return result
+        except AssertionError as e:
+            if not self.catch_assertion_errors:
+                raise TestFailedException(e)
+        except TestFailedException as e:    # Not catching Assertion Errors here so can test tests!
+            logging.info(f" @: {str(e)}\n Traceback: {traceback.format_exc(0)}")
+            result.test_failed()
+            self.tear_down()
+            return result
         except Exception as e:
             logging.exception(f" @: {str(e)}\n Traceback: {traceback.format_exc(0)}")
+            logging.fatal(f" Exiting after caught exception: {e}")
+            sys.exit(1)
 
-            result.test_failed()
         self.tear_down()
         return result
 
@@ -43,6 +66,7 @@ class WasRun(TestCase):
         super().__init__(test_to_run)
 
     def setup(self):
+        # catch any exception/ trace back and propagate as a setupfailedexception
         self.log = "setup_OK|"
 
     def test_method(self):
@@ -53,6 +77,9 @@ class WasRun(TestCase):
 
     def test_broken_method(self):
         raise TestFailedException("test_broken_method failed as expected.")
+
+    def test_broken_setup(self):
+        raise SetupFailedException("SetupFailed Exception raised as expected.")
 
 class TestCaseTest(TestCase):
     def __init__(self, test_to_run):
@@ -73,13 +100,18 @@ class TestCaseTest(TestCase):
     def test_failed_result(self):
         test = WasRun("test_broken_method")
         result = test.run()
-        assert("1 run, 0 failed" == result.summary())
+        assert("1 run, 1 failed" == result.summary())
 
     def test_failed_result_formatting(self):
         result = TestResult()
         result.test_started()
         result.test_failed()
         assert("1 run, 1 failed" == result.summary())
+
+    def test_setup_exception_caught(self):
+            test = WasRun("test_broken_setup")
+            TestUtils.assert_raises(SetupFailedException, test.run)
+
 
 class TestResult:
     def __init__(self):
@@ -100,3 +132,4 @@ TestCaseTest("test_passed_to_this_test_case").run()
 TestCaseTest("test_result").run()
 TestCaseTest("test_failed_result_formatting").run()
 TestCaseTest("test_failed_result").run()
+TestCaseTest("test_setup_exception_caught").run()

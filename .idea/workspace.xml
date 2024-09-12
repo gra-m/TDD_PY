@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63445f2c-c5e8-4178-ae2e-33268b555554" name="Changes" comment="test_failed_result_formatting test added and passing.">
+    <list default="true" id="63445f2c-c5e8-4178-ae2e-33268b555554" name="Changes" comment="Added simple logging and TestFailedException">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xunit/bootstrap/bootstrap.py" beforeDir="false" afterPath="$PROJECT_DIR$/xunit/bootstrap/bootstrap.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +46,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.bootstrap.executor": "Run",
+    "Python.bootstrap.executor": "Debug",
     "Python.test_case.executor": "Run",
     "Python.test_case_bootstrap.executor": "Run",
     "Python.was_run.executor": "Run",
@@ -85,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726131232668</updated>
       <workItem from="1726131234933" duration="190000" />
-      <workItem from="1726131442861" duration="22423000" />
+      <workItem from="1726131442861" duration="25358000" />
     </task>
     <task id="LOCAL-00001" summary="xunit in one file bootstrap dir.">
       <option name="closed" value="true" />
@@ -199,11 +198,30 @@
       <option name="project" value="LOCAL" />
       <updated>1726158016312</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added simple logging and TestFailedException">
+      <option name="closed" value="true" />
+      <created>1726160320870</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1726160320870</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="xunit in one file bootstrap dir." />
@@ -220,27 +238,34 @@
     <MESSAGE value="result summary" />
     <MESSAGE value="test_failed_result mimics failure but does not report it." />
     <MESSAGE value="test_failed_result_formatting test added and passing." />
-    <option name="LAST_COMMIT_MESSAGE" value="test_failed_result_formatting test added and passing." />
+    <MESSAGE value="Added simple logging and TestFailedException" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added simple logging and TestFailedException" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="NONE" type="python-line">
           <url>file://$PROJECT_DIR$/xunit/bootstrap/bootstrap.py</url>
-          <line>58</line>
+          <line>65</line>
           <log-expression expression="print (f&quot;Log == {self.test.log} correct = {self.test.log == 'setup_OK|test_method_OK|tear_down_OK|'}&quot;)" language="Python" mode="CODE_FRAGMENT" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="NONE" type="python-line">
           <url>file://$PROJECT_DIR$/xunit/bootstrap/bootstrap.py</url>
-          <line>63</line>
+          <line>70</line>
           <log-expression expression="print(f&quot;Result.summary() as expected == {result.summary()} correct = {result.summary() == &quot;1 run, 0 failed&quot;}&quot;)" language="Python" />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="NONE" type="python-line">
           <url>file://$PROJECT_DIR$/xunit/bootstrap/bootstrap.py</url>
-          <line>74</line>
+          <line>81</line>
           <log-expression expression="print(f&quot;Result.summary() as expected == {result.summary()} correct = {result.summary() == &quot;1 run, 1 failed&quot;}&quot;)" language="Python" mode="CODE_FRAGMENT" />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="NONE" type="python-line">
+          <url>file://$PROJECT_DIR$/xunit/bootstrap/bootstrap.py</url>
+          <line>75</line>
+          <log-expression expression="print(f&quot;Result.summary() as expected == {result.summary()} correct = {result.summary() == &quot;1 run, 0 failed&quot;}&quot;)" language="Python" mode="CODE_FRAGMENT" />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
@@ -248,7 +273,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TDD_PY$test_case.coverage" NAME="test_case Coverage Results" MODIFIED="1726132208325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />
-    <SUITE FILE_PATH="coverage/TDD_PY$bootstrap.coverage" NAME="bootstrap Coverage Results" MODIFIED="1726158972739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit/bootstrap" />
+    <SUITE FILE_PATH="coverage/TDD_PY$bootstrap.coverage" NAME="bootstrap Coverage Results" MODIFIED="1726160266656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit/bootstrap" />
     <SUITE FILE_PATH="coverage/TDD_PY$test_case_bootstrap.coverage" NAME="test_case_bootstrap Coverage Results" MODIFIED="1726132683202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />
     <SUITE FILE_PATH="coverage/TDD_PY$was_run.coverage" NAME="was_run Coverage Results" MODIFIED="1726132564763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />
   </component>
