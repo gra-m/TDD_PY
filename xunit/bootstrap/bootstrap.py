@@ -6,6 +6,7 @@ class TestCase:
         self.test_to_run: str = test_to_run
 
     def setup(self):
+        # this is empty to allow self.setup to be called by TestCaseTest instances keeping run simple.
         pass
 
     def run(self):
@@ -20,9 +21,11 @@ class WasRun(TestCase):
         super().__init__(test_to_run)
 
     def test_method(self):
+        # run tests here
         self.log = self.log + "test_method_OK|"
 
     def setup(self):
+        # insert set up steps here
         self.log = "setup_OK|"
         
 
@@ -32,13 +35,11 @@ class TestCaseTest(TestCase):
         self.test: Optional[WasRun] = None
         super().__init__(test_to_run)
 
-    def setup(self):
+    def test_passed_to_this_test_case(self):
         self.test = WasRun("test_method")
-
-    def test_template_method(self):
         self.test.run()
         assert "setup_OK|test_method_OK|"  == self.test.log
 
 
 
-TestCaseTest("test_template_method").run()
+TestCaseTest("test_passed_to_this_test_case").run()
