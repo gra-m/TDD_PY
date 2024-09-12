@@ -36,6 +36,9 @@ class WasRun(TestCase):
     def tear_down(self):
         self.log = self.log + "tear_down_OK|"
 
+    def test_broken_method(self):
+        raise Exception
+
 class TestCaseTest(TestCase):
     def __init__(self, test_to_run):
         self.test: Optional[WasRun] = None
@@ -52,6 +55,11 @@ class TestCaseTest(TestCase):
         result = test.run()
         assert("1 run, 0 failed" == result.summary())
 
+    def test_failed_result(self):
+        test = WasRun("test_broken_method")
+        result = test.run()
+        assert("1 run, 1 failed" == result.summary())
+
 class TestResult:
     def __init__(self):
         self.run_count: int = 0
@@ -65,3 +73,4 @@ class TestResult:
 # Bootstrap tests
 TestCaseTest("test_passed_to_this_test_case").run()
 TestCaseTest("test_result").run()
+# TestCaseTest("test_failed_result").run()
