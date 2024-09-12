@@ -17,16 +17,13 @@ class TestCase:
 class WasRun(TestCase):
     def __init__(self, test_to_run):
         self.log = None
-        self.was_run: bool
         super().__init__(test_to_run)
 
     def test_method(self):
-        self.was_run = True
-        self.log = self.log + "test_method "
+        self.log = self.log + "test_method_OK|"
 
     def setup(self):
-        self.was_run = False
-        self.log = "setup "
+        self.log = "setup_OK|"
         
 
 
@@ -38,14 +35,10 @@ class TestCaseTest(TestCase):
     def setup(self):
         self.test = WasRun("test_method")
 
-    def test_setup(self):
+    def test_template_method(self):
         self.test.run()
-        assert "setup test_method "  == self.test.log
-
-    def test_running(self):
-        self.test.run()
-        assert self.test.was_run
+        assert "setup_OK|test_method_OK|"  == self.test.log
 
 
-TestCaseTest("test_setup").run()
-TestCaseTest("test_running").run()
+
+TestCaseTest("test_template_method").run()
