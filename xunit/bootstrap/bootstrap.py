@@ -13,12 +13,13 @@ class TestCase:
         pass
 
     def run(self):
-        # result.test_started() # added without explanation
+        result = TestResult()
+        result.test_started()
         self.setup()
         run_test_passed_to_this_test_case = getattr(self, self.test_to_run)
         run_test_passed_to_this_test_case()
         self.tear_down()
-        return TestResult()
+        return result
 
 
 class WasRun(TestCase):
@@ -52,8 +53,15 @@ class TestCaseTest(TestCase):
         assert("1 run, 0 failed" == result.summary())
 
 class TestResult:
-    
-    def summary(self):
-        return "1 run, 0 failed"
+    def __init__(self):
+        self.run_count: int = 0
 
+    def test_started(self):
+        self.run_count = self.run_count + 1
+
+    def summary(self):
+        return f"{self.run_count} run, 0 failed"
+    
+# Bootstrap tests
 TestCaseTest("test_passed_to_this_test_case").run()
+TestCaseTest("test_result").run()
