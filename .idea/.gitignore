@@ -1,0 +1,7 @@
+# Default ignored files workspace.xml not ignored as tracepoints used in this project
+/shelf/
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
