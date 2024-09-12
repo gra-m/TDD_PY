@@ -2,9 +2,6 @@ class TestCase:
     def __init__(self, test_to_run):
         self.test_to_run: str = test_to_run
 
-
-
-
 class WasRun(TestCase):
     def __init__(self, test_to_run):
         self.was_run: bool = False
@@ -18,7 +15,9 @@ class WasRun(TestCase):
         run_test_passed_to_this_test_case()
 
 
+
+
 test = WasRun("test_method")
-print (test.was_run)
+assert(not test.was_run)
 test.run()
-print (test.was_run)
+assert test.was_run
