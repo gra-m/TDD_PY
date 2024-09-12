@@ -60,17 +60,28 @@ class TestCaseTest(TestCase):
         result = test.run()
         assert("1 run, 1 failed" == result.summary())
 
+    def test_failed_result_formatting(self):
+        result = TestResult()
+        result.test_started()
+        result.test_failed()
+        assert("1 run, 1 failed" == result.summary())
+
 class TestResult:
     def __init__(self):
         self.run_count: int = 0
+        self.failure_count: int = 0
 
     def test_started(self):
         self.run_count = self.run_count + 1
 
+    def test_failed(self):
+        self.failure_count = self.failure_count + 1
+
     def summary(self):
-        return f"{self.run_count} run, 0 failed"
+        return f"{self.run_count} run, {self.failure_count} failed"
     
 # Bootstrap tests
 TestCaseTest("test_passed_to_this_test_case").run()
 TestCaseTest("test_result").run()
+TestCaseTest("test_failed_result_formatting").run()
 # TestCaseTest("test_failed_result").run()
