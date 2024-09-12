@@ -16,16 +16,18 @@ class TestCase:
 
 class WasRun(TestCase):
     def __init__(self, test_to_run):
+        self.log = None
         self.was_run: bool
-        self.was_setup: bool = False
         super().__init__(test_to_run)
 
     def test_method(self):
         self.was_run = True
+        self.log = self.log + "test_method "
 
     def setup(self):
         self.was_run = False
-        self.was_setup = True
+        self.log = "setup "
+        
 
 
 class TestCaseTest(TestCase):
@@ -38,11 +40,10 @@ class TestCaseTest(TestCase):
 
     def test_setup(self):
         self.test.run()
-        assert self.test.was_setup
+        assert "setup test_method "  == self.test.log
 
     def test_running(self):
         self.test.run()
-        # the asserts only report if they fail, to see output add tracepoints and print(test.was_run) and run in debug.
         assert self.test.was_run
 
 
