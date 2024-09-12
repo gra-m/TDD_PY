@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63445f2c-c5e8-4178-ae2e-33268b555554" name="Changes" comment="TestCaseTest run via test_running and runs was run 'test_method'">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="63445f2c-c5e8-4178-ae2e-33268b555554" name="Changes" comment="bit of checking and clarification, alternate to book I am keeping instance var of WasRun at this point. comments added for clarity.">
       <change beforePath="$PROJECT_DIR$/xunit/bootstrap/bootstrap.py" beforeDir="false" afterPath="$PROJECT_DIR$/xunit/bootstrap/bootstrap.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726131232668</updated>
       <workItem from="1726131234933" duration="190000" />
-      <workItem from="1726131442861" duration="7134000" />
+      <workItem from="1726131442861" duration="17003000" />
     </task>
     <task id="LOCAL-00001" summary="xunit in one file bootstrap dir.">
       <option name="closed" value="true" />
@@ -118,7 +117,47 @@
       <option name="project" value="LOCAL" />
       <updated>1726137695582</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="tracepoints added, workspace.xml committed to keep these.">
+      <option name="closed" value="true" />
+      <created>1726138862525</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726138862525</updated>
+    </task>
+    <task id="LOCAL-00006" summary="WasRun instance var 'test' created in set up">
+      <option name="closed" value="true" />
+      <created>1726140811085</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726140811085</updated>
+    </task>
+    <task id="LOCAL-00007" summary="log introduced">
+      <option name="closed" value="true" />
+      <created>1726142557310</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726142557310</updated>
+    </task>
+    <task id="LOCAL-00008" summary="set up and test_method checked together in def test_template_method. Debug Tracepoint outputs: Log == setup_OK|test_method_OK| correct = True">
+      <option name="closed" value="true" />
+      <created>1726143953905</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726143953905</updated>
+    </task>
+    <task id="LOCAL-00009" summary="bit of checking and clarification, alternate to book I am keeping instance var of WasRun at this point. comments added for clarity.">
+      <option name="closed" value="true" />
+      <created>1726146273546</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726146273546</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,27 +168,20 @@
     <MESSAGE value="attempting to make code self-explanatory with descriptive variable names" />
     <MESSAGE value="Asserts replace log prints with tracepoints that print when run in debug." />
     <MESSAGE value="TestCaseTest run via test_running and runs was run 'test_method'" />
-    <option name="LAST_COMMIT_MESSAGE" value="TestCaseTest run via test_running and runs was run 'test_method'" />
+    <MESSAGE value="tracepoints added, workspace.xml committed to keep these." />
+    <MESSAGE value="WasRun instance var 'test' created in set up" />
+    <MESSAGE value="log introduced" />
+    <MESSAGE value="set up and test_method checked together in def test_template_method. Debug Tracepoint outputs: Log == setup_OK|test_method_OK| correct = True" />
+    <MESSAGE value="bit of checking and clarification, alternate to book I am keeping instance var of WasRun at this point. comments added for clarity." />
+    <option name="LAST_COMMIT_MESSAGE" value="bit of checking and clarification, alternate to book I am keeping instance var of WasRun at this point. comments added for clarity." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="NONE" type="python-line">
           <url>file://$PROJECT_DIR$/xunit/bootstrap/bootstrap.py</url>
-          <line>38</line>
-          <log-expression expression="print(f&quot;test was run {test.was_run}&quot;)" language="Python" />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="NONE" type="python-line">
-          <url>file://$PROJECT_DIR$/xunit/bootstrap/bootstrap.py</url>
-          <line>40</line>
-          <log-expression expression="print(f&quot;test was run {test.was_run}&quot;)" language="Python" />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="NONE" type="python-line">
-          <url>file://$PROJECT_DIR$/xunit/bootstrap/bootstrap.py</url>
-          <line>33</line>
-          <log-expression expression="print(f&quot;Was set up {test.was_setup}&quot;)" language="Python" />
+          <line>46</line>
+          <log-expression expression="print (f&quot;Log == {self.test.log} correct = {self.test.log == 'setup_OK|test_method_OK|tear_down_OK|'}&quot;)" language="Python" mode="CODE_FRAGMENT" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
@@ -157,7 +189,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TDD_PY$test_case.coverage" NAME="test_case Coverage Results" MODIFIED="1726132208325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />
-    <SUITE FILE_PATH="coverage/TDD_PY$bootstrap.coverage" NAME="bootstrap Coverage Results" MODIFIED="1726138527583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit/bootstrap" />
+    <SUITE FILE_PATH="coverage/TDD_PY$bootstrap.coverage" NAME="bootstrap Coverage Results" MODIFIED="1726149070838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit/bootstrap" />
     <SUITE FILE_PATH="coverage/TDD_PY$test_case_bootstrap.coverage" NAME="test_case_bootstrap Coverage Results" MODIFIED="1726132683202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />
     <SUITE FILE_PATH="coverage/TDD_PY$was_run.coverage" NAME="was_run Coverage Results" MODIFIED="1726132564763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />
   </component>
