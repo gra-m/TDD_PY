@@ -1,4 +1,12 @@
+import traceback
 from typing import Optional
+import logging
+
+logging.basicConfig(level=logging.INFO)
+
+class TestFailedException(Exception):
+    def __init__(self, message):
+        super().__init__(message)
 
 class TestCase:
     def __init__(self, test_to_run):
@@ -16,8 +24,15 @@ class TestCase:
         result = TestResult()
         result.test_started()
         self.setup()
-        run_test_passed_to_this_test_case = getattr(self, self.test_to_run)
-        run_test_passed_to_this_test_case()
+        try:
+            run_test_passed_to_this_test_case = getattr(self, self.test_to_run)
+            run_test_passed_to_this_test_case()
+        except TestFailedException as e:
+            logging.info(f" @: {str(e)}\n Traceback: {traceback.format_exc(0)}")
+        except Exception as e:
+            logging.exception(f" @: {str(e)}\n Traceback: {traceback.format_exc(0)}")
+
+            result.test_failed()
         self.tear_down()
         return result
 
@@ -37,7 +52,7 @@ class WasRun(TestCase):
         self.log = self.log + "tear_down_OK|"
 
     def test_broken_method(self):
-        raise Exception
+        raise TestFailedException("test_broken_method failed as expected.")
 
 class TestCaseTest(TestCase):
     def __init__(self, test_to_run):
@@ -58,7 +73,7 @@ class TestCaseTest(TestCase):
     def test_failed_result(self):
         test = WasRun("test_broken_method")
         result = test.run()
-        assert("1 run, 1 failed" == result.summary())
+        assert("1 run, 0 failed" == result.summary())
 
     def test_failed_result_formatting(self):
         result = TestResult()
@@ -84,4 +99,4 @@ class TestResult:
 TestCaseTest("test_passed_to_this_test_case").run()
 TestCaseTest("test_result").run()
 TestCaseTest("test_failed_result_formatting").run()
-# TestCaseTest("test_failed_result").run()
+TestCaseTest("test_failed_result").run()
