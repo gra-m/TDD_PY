@@ -2,9 +2,9 @@ from typing import Tuple, Union
 
 import numpy as np
 
-EMPTY = 0
-WHITE = 1
-BLACK = -1
+BLACK_MIN_ONE = -1
+EMPTY_ZERO = 0
+WHITE_ONE = 1
 
 
 class Board:
@@ -25,7 +25,7 @@ class Board:
         self._num_rows = num_rows
         self._num_cols = num_cols
         # Create an empty board (numpy 2-dimensional array)
-        self._pieces = np.zeros((self._num_rows, self._num_cols), dtype = np.int8)
+        self._pieces =  self.__getpieces__()
 
     def get_board_size(self):
         return self._num_rows * self._num_cols
@@ -50,6 +50,12 @@ class Board:
         row, column = index
         self._pieces[row, column] = value
 
+    def __getpieces__(self, type_for_array = np.int8):
+        value = np.zeros((self._num_rows, self._num_cols), dtype = type_for_array)
+        print(f"__getpieces__ ${value}")
+        return value
+
+
     @property
     def pieces(self):
         return self._pieces
@@ -63,16 +69,16 @@ class Board:
         return self._num_cols
 
     def has_valid_moves(self) -> bool:
-        return np.sum(self._pieces == EMPTY) > 0
+        return np.sum(self._pieces == EMPTY_ZERO) > 0
 
     def get_valid_moves(self):
-        array_init_as_nine_zeros = np.zeros(9, dtype=np.uint8)
+        array_init_as_all_zeros = np.zeros(self.get_action_size(), dtype=np.uint8)
 
-        for row in range(3):
-            for column in range(3):
+        for row in range(self.size):
+            for column in range(self.size):
                 if self._pieces[row, column] == 0:
-                    array_init_as_nine_zeros[row * 3 + column] = 1
-        return array_init_as_nine_zeros
+                    array_init_as_all_zeros[row * self.size + column] = 1
+        return array_init_as_all_zeros
 
     def is_win(self, player: int) -> bool:
         """Check whether the given player has collected a triplet in any direction on a rectangular board"""
@@ -81,11 +87,11 @@ class Board:
          #   return False
 
         for i in range(3):
-            if (np.all(self._pieces[i, :] == player) or np.all(self._pieces[:, i] == player)):
+            if np.all(self._pieces[i, :] == player) or np.all(self._pieces[:, i] == player):
                 print("row/col WIN")
                 return True
 
-        if (np.all(np.diag(self._pieces) == player) or np.all(np.diag(np.fliplr(self._pieces))== player)):
+        if np.all(np.diag(self._pieces) == player) or np.all(np.diag(np.fliplr(self._pieces)) == player):
             print("diagonal WIN")
             return True
 
@@ -95,8 +101,8 @@ class Board:
     def execute_move(self, player: int, action: int):
         """Perform the given action on the board"""
         try:
-            assert self.get_valid_moves()[action] == EMPTY, "Invalid move: Attempting to play in a non-empty square."
-            three_d_move: tuple[int, int] = (action // 3, action % 3)
+            assert self.get_valid_moves()[action] == EMPTY_ZERO, "Invalid move: Attempting to play in a non-empty square."
+            three_d_move: tuple[int, int] = (action // self.size,  action % self.size)
             self.__setitem__(three_d_move, player)
         except AssertionError as e:
             print(f"Assertion failed: {e}")
@@ -107,18 +113,30 @@ class Board:
         for x in range(self._num_rows):
             for y in range(self._num_cols):
                 piece = self[x, y]
-                if piece == WHITE:
+                if piece == WHITE_ONE:
                     board_str.append("X")
-                elif piece == BLACK:
+                elif piece == BLACK_MIN_ONE:
                     board_str.append("O")
-                elif piece == EMPTY:
+                elif piece == EMPTY_ZERO:
                     board_str.append("-")
             board_str.append("\n")
         return "".join(board_str)
 
     def get_encoded_state(self):
-        encoded_state = None # numpy stack of three masks
-        return encoded_state
+        return_stack = np.stack([self.__create_encoded_state_for__(value) for value in [BLACK_MIN_ONE, EMPTY_ZERO, WHITE_ONE]])
+
+        print(f"encoded state is ${return_stack}")
+        return return_stack
+
+    def __create_encoded_state_for__(self, value_to_find: int):
+        # init pieces array as np.float32, this contains 0s by default
+        pieces_mask = self.__getpieces__(np.float32)
+        # set pieces where it equals value to find to the value in pieces (always 0) plus one
+        pieces_mask [self._pieces == value_to_find] += 1
+        return pieces_mask
+
+
+
 
     def get_player(self, action):
         row = action // self.size

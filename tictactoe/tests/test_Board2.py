@@ -5,7 +5,7 @@ import numpy as np
 from tictactoe.Board import Board
 
 
-class Test_get_valid_moves_Function(unittest.TestCase):
+class TestGetValidMovesFunction(unittest.TestCase):
     def setUp(self):
         self.board3x3 = Board(3, 3)
 
@@ -29,4 +29,4 @@ class Test_get_valid_moves_Function(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
