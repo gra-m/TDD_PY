@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63445f2c-c5e8-4178-ae2e-33268b555554" name="Changes" comment="Added simple logging and TestFailedException">
+    <list default="true" id="63445f2c-c5e8-4178-ae2e-33268b555554" name="Changes" comment="tried to use unittest assertraises but it filled console with issues, tried to solve with AI help, but eventually simplest solution was to create helper class that tries the passed function and catches the expected exception. Added warning for when Assertion errors are turned off.">
+      <change afterPath="$PROJECT_DIR$/tictactoe/Board.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tictactoe/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tictactoe/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tictactoe/tests/test_Board.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tictactoe/tests/test_Board2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +22,17 @@
       <list>
         <option value="Python Script" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -46,11 +62,26 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.bootstrap.executor": "Debug",
+    "Python tests.Python tests for bootstrap.TestCaseTest.test_setup_exception_caught.executor": "Run",
+    "Python tests.Python tests for test_Board.BoardTestCase.executor": "Run",
+    "Python tests.Python tests for test_Board.BoardTestCase.test_is_win_column_winner.executor": "Run",
+    "Python tests.Python tests for test_Board.BoardTestCase.test_is_win_diagonal_winner.executor": "Run",
+    "Python tests.Python tests for test_Board.BoardTestCase.test_is_win_no_winner.executor": "Run",
+    "Python tests.Python tests for test_Board.BoardTestCase.test_is_win_other_diagonal_winner.executor": "Run",
+    "Python tests.Python tests for test_Board.BoardTestCase.test_is_win_row_winner.executor": "Run",
+    "Python tests.Python tests for test_Board.TestBoard.test_has_valid_moves.executor": "Run",
+    "Python tests.Python tests for test_Board2.Test_get_valid_moves_Function.executor": "Run",
+    "Python tests.Python tests for test_Board2.Test_get_valid_moves_Function.test_get_valid_moves_board_with_invalid_characters.executor": "Run",
+    "Python tests.Python tests for test_Board2.Test_get_valid_moves_Function.test_get_valid_moves_empty_board.executor": "Run",
+    "Python tests.Python tests for test_Board2.Test_get_valid_moves_Function.test_get_valid_moves_full_board.executor": "Run",
+    "Python tests.Python tests for test_Board2.Test_get_valid_moves_Function.test_get_valid_moves_one_move_made.executor": "Run",
+    "Python.bootstrap.executor": "Run",
     "Python.test_case.executor": "Run",
     "Python.test_case_bootstrap.executor": "Run",
+    "Python.unit_testing_helper.executor": "Run",
     "Python.was_run.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
@@ -64,14 +95,111 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.54022986",
+    "settings.editor.selected.configurable": "ml.llm.AIAssistantPromptsLibrary",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Gram\IdeaProjects\TDD_PY\tictactoe" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for test_Board.BoardTestCase">
+    <configuration name="Python tests for test_Board2.Test_get_valid_moves_Function" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="TDD_PY" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tictactoe/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_Board2.Test_get_valid_moves_Function&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_Board2.Test_get_valid_moves_Function.test_get_valid_moves_full_board" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="TDD_PY" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tictactoe/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_Board2.Test_get_valid_moves_Function.test_get_valid_moves_full_board&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_Board.BoardTestCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="TDD_PY" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tictactoe/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_Board.BoardTestCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_Board.BoardTestCase.test_is_win_no_winner" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="TDD_PY" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tictactoe/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_Board.BoardTestCase.test_is_win_no_winner&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_Board.TestBoard.test_has_valid_moves" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="TDD_PY" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_Board.TestBoard.test_has_valid_moves&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_Board.BoardTestCase" />
+        <item itemvalue="Python tests.Python tests for test_Board2.Test_get_valid_moves_Function" />
+        <item itemvalue="Python tests.Python tests for test_Board2.Test_get_valid_moves_Function.test_get_valid_moves_full_board" />
+        <item itemvalue="Python tests.Python tests for test_Board.TestBoard.test_has_valid_moves" />
+        <item itemvalue="Python tests.Python tests for test_Board.BoardTestCase.test_is_win_no_winner" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -84,7 +212,12 @@
       <option name="presentableId" value="Default" />
       <updated>1726131232668</updated>
       <workItem from="1726131234933" duration="190000" />
-      <workItem from="1726131442861" duration="25358000" />
+      <workItem from="1726131442861" duration="34648000" />
+      <workItem from="1726241783172" duration="545000" />
+      <workItem from="1726742162831" duration="142000" />
+      <workItem from="1731430926924" duration="5890000" />
+      <workItem from="1731495118526" duration="3548000" />
+      <workItem from="1731587255149" duration="5363000" />
     </task>
     <task id="LOCAL-00001" summary="xunit in one file bootstrap dir.">
       <option name="closed" value="true" />
@@ -206,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726160320870</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="tried to use unittest assertraises but it filled console with issues, tried to solve with AI help, but eventually simplest solution was to create helper class that tries the passed function and catches the expected exception. Added warning for when Assertion errors are turned off.">
+      <option name="closed" value="true" />
+      <created>1726171657243</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1726171657243</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,41 +380,48 @@
     <MESSAGE value="test_failed_result mimics failure but does not report it." />
     <MESSAGE value="test_failed_result_formatting test added and passing." />
     <MESSAGE value="Added simple logging and TestFailedException" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added simple logging and TestFailedException" />
+    <MESSAGE value="tried to use unittest assertraises but it filled console with issues, tried to solve with AI help, but eventually simplest solution was to create helper class that tries the passed function and catches the expected exception. Added warning for when Assertion errors are turned off." />
+    <option name="LAST_COMMIT_MESSAGE" value="tried to use unittest assertraises but it filled console with issues, tried to solve with AI help, but eventually simplest solution was to create helper class that tries the passed function and catches the expected exception. Added warning for when Assertion errors are turned off." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="NONE" type="python-line">
           <url>file://$PROJECT_DIR$/xunit/bootstrap/bootstrap.py</url>
-          <line>65</line>
+          <line>92</line>
           <log-expression expression="print (f&quot;Log == {self.test.log} correct = {self.test.log == 'setup_OK|test_method_OK|tear_down_OK|'}&quot;)" language="Python" mode="CODE_FRAGMENT" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="NONE" type="python-line">
           <url>file://$PROJECT_DIR$/xunit/bootstrap/bootstrap.py</url>
-          <line>70</line>
+          <line>97</line>
           <log-expression expression="print(f&quot;Result.summary() as expected == {result.summary()} correct = {result.summary() == &quot;1 run, 0 failed&quot;}&quot;)" language="Python" />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="NONE" type="python-line">
           <url>file://$PROJECT_DIR$/xunit/bootstrap/bootstrap.py</url>
-          <line>81</line>
+          <line>108</line>
           <log-expression expression="print(f&quot;Result.summary() as expected == {result.summary()} correct = {result.summary() == &quot;1 run, 1 failed&quot;}&quot;)" language="Python" mode="CODE_FRAGMENT" />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="NONE" type="python-line">
           <url>file://$PROJECT_DIR$/xunit/bootstrap/bootstrap.py</url>
-          <line>75</line>
+          <line>102</line>
           <log-expression expression="print(f&quot;Result.summary() as expected == {result.summary()} correct = {result.summary() == &quot;1 run, 0 failed&quot;}&quot;)" language="Python" mode="CODE_FRAGMENT" />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TDD_PY$unit_testing_helper.coverage" NAME="unit_testing_helper Coverage Results" MODIFIED="1726169560333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit/bootstrap" />
     <SUITE FILE_PATH="coverage/TDD_PY$test_case.coverage" NAME="test_case Coverage Results" MODIFIED="1726132208325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />
-    <SUITE FILE_PATH="coverage/TDD_PY$bootstrap.coverage" NAME="bootstrap Coverage Results" MODIFIED="1726160266656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit/bootstrap" />
+    <SUITE FILE_PATH="coverage/TDD_PY$.coverage" NAME=" Coverage Results" MODIFIED="1731592611867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tictactoe/tests" />
+    <SUITE FILE_PATH="coverage/TDD_PY$bootstrap.coverage" NAME="bootstrap Coverage Results" MODIFIED="1726171248760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit/bootstrap" />
     <SUITE FILE_PATH="coverage/TDD_PY$test_case_bootstrap.coverage" NAME="test_case_bootstrap Coverage Results" MODIFIED="1726132683202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />
     <SUITE FILE_PATH="coverage/TDD_PY$was_run.coverage" NAME="was_run Coverage Results" MODIFIED="1726132564763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />
   </component>
