@@ -85,7 +85,7 @@ class Board:
         # if np.sum(self.get_valid_moves() == 0) > 3:
          #   return False
 
-        for i in range(3):
+        for i in range(self.size):
             if np.all(self._pieces[i, :] == player) or np.all(self._pieces[:, i] == player):
                 print("row/col WIN")
                 return True
