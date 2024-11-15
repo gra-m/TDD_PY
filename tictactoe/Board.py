@@ -1,4 +1,4 @@
-from typing import Tuple, Union
+from typing import Tuple
 
 import numpy as np
 
@@ -52,7 +52,6 @@ class Board:
 
     def __getpieces__(self, type_for_array = np.int8):
         value = np.zeros((self._num_rows, self._num_cols), dtype = type_for_array)
-        print(f"__getpieces__ ${value}")
         return value
 
 
@@ -101,11 +100,13 @@ class Board:
     def execute_move(self, player: int, action: int):
         """Perform the given action on the board"""
         try:
-            assert self.get_valid_moves()[action] == EMPTY_ZERO, "Invalid move: Attempting to play in a non-empty square."
+            print(f"valid moves before executing move are: ${self.get_valid_moves()}")
+            assert self.get_valid_moves()[action] == WHITE_ONE, "Invalid move: Attempting to play in a non-empty square."
             three_d_move: tuple[int, int] = (action // self.size,  action % self.size)
             self.__setitem__(three_d_move, player)
         except AssertionError as e:
             print(f"Assertion failed: {e}")
+            raise e  # Re-raise the exception after logging for test
 
 
     def __str__(self):
