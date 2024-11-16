@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63445f2c-c5e8-4178-ae2e-33268b555554" name="Changes" comment="test board4">
-      <change afterPath="$PROJECT_DIR$/tictactoe/Game.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tictactoe/Round.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tictactoe/TicTacToe.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tictactoe/tests/test_Game.py" afterDir="false" />
+    <list default="true" id="63445f2c-c5e8-4178-ae2e-33268b555554" name="Changes" comment="round tests OK, made comment private functions.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tictactoe/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/tictactoe/Board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tictactoe/Round.py" beforeDir="false" afterPath="$PROJECT_DIR$/tictactoe/Round.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tictactoe/TicTacToe.py" beforeDir="false" afterPath="$PROJECT_DIR$/tictactoe/TicTacToe.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +35,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -85,7 +84,14 @@
     "Python tests.Python tests for test_Board4.BoardExecuteMoveTestCase.test_execute_move_invalid_move.executor": "Run",
     "Python tests.Python tests for test_Board4.BoardExecuteMoveTestCase.test_execute_move_on_populated_board.executor": "Run",
     "Python tests.Python tests for test_Board4.BoardExecuteMoveTestCase.test_execute_move_valid_move.executor": "Run",
+    "Python tests.Python tests for test_Game.TestCase.executor": "Run",
     "Python tests.Python tests for test_Game.TestCase.test_init.executor": "Run",
+    "Python tests.Python tests for test_round.TestCase.executor": "Run",
+    "Python tests.Python tests for test_round.TestCase.test_action_not_valid.executor": "Run",
+    "Python tests.Python tests for test_round.TestCase.test_game_draw.executor": "Run",
+    "Python tests.Python tests for test_round.TestCase.test_init.executor": "Run",
+    "Python tests.Python tests in test_Board4.py.executor": "Run",
+    "Python.Round.executor": "Run",
     "Python.bootstrap.executor": "Run",
     "Python.test_case.executor": "Run",
     "Python.test_case_bootstrap.executor": "Run",
@@ -115,8 +121,31 @@
       <recent name="C:\Users\Gram\IdeaProjects\TDD_PY\tictactoe" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_Game.TestCase.test_init">
-    <configuration name="Python tests for test_Board2.TestGetValidMovesFunction" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.Round">
+    <configuration name="Round" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TDD_PY" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tictactoe" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tictactoe/Round.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_Board4.BoardExecuteMoveTestCase.test_execute_move_invalid_move" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="TDD_PY" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -128,11 +157,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_Board2.TestGetValidMovesFunction&quot;" />
+      <option name="_new_target" value="&quot;test_Board4.BoardExecuteMoveTestCase.test_execute_move_invalid_move&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_Board3.TestBoardGetEncodedState" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_round.TestCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="TDD_PY" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,11 +173,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_Board3.TestBoardGetEncodedState&quot;" />
+      <option name="_new_target" value="&quot;test_round.TestCase&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_Board4.BoardExecuteMoveTestCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_round.TestCase.test_game_draw" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="TDD_PY" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -160,11 +189,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_Board4.BoardExecuteMoveTestCase&quot;" />
+      <option name="_new_target" value="&quot;test_round.TestCase.test_game_draw&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_Board.BoardTestCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_round.TestCase.test_init" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="TDD_PY" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -176,33 +205,17 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_Board.BoardTestCase&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_Game.TestCase.test_init" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="TDD_PY" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tictactoe/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_Game.TestCase.test_init&quot;" />
+      <option name="_new_target" value="&quot;test_round.TestCase.test_init&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_Game.TestCase.test_init" />
-        <item itemvalue="Python tests.Python tests for test_Board4.BoardExecuteMoveTestCase" />
-        <item itemvalue="Python tests.Python tests for test_Board3.TestBoardGetEncodedState" />
-        <item itemvalue="Python tests.Python tests for test_Board2.TestGetValidMovesFunction" />
-        <item itemvalue="Python tests.Python tests for test_Board.BoardTestCase" />
+        <item itemvalue="Python.Round" />
+        <item itemvalue="Python tests.Python tests for test_round.TestCase.test_game_draw" />
+        <item itemvalue="Python tests.Python tests for test_round.TestCase" />
+        <item itemvalue="Python tests.Python tests for test_round.TestCase.test_init" />
+        <item itemvalue="Python tests.Python tests for test_Board4.BoardExecuteMoveTestCase.test_execute_move_invalid_move" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +243,9 @@
       <workItem from="1731495118526" duration="3548000" />
       <workItem from="1731587255149" duration="12376000" />
       <workItem from="1731599842581" duration="3142000" />
-      <workItem from="1731660389135" duration="4816000" />
+      <workItem from="1731660389135" duration="5528000" />
+      <workItem from="1731691112009" duration="11321000" />
+      <workItem from="1731767608668" duration="4735000" />
     </task>
     <task id="LOCAL-00001" summary="xunit in one file bootstrap dir.">
       <option name="closed" value="true" />
@@ -392,7 +407,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731660521460</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Game tests running">
+      <option name="closed" value="true" />
+      <created>1731665769417</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1731665769417</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +452,9 @@
     <MESSAGE value="before using board size values." />
     <MESSAGE value="All tests passing." />
     <MESSAGE value="test board4" />
-    <option name="LAST_COMMIT_MESSAGE" value="test board4" />
+    <MESSAGE value="Game tests running" />
+    <MESSAGE value="round tests OK, made comment private functions." />
+    <option name="LAST_COMMIT_MESSAGE" value="round tests OK, made comment private functions." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -467,8 +492,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TDD_PY$unit_testing_helper.coverage" NAME="unit_testing_helper Coverage Results" MODIFIED="1726169560333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit/bootstrap" />
+    <SUITE FILE_PATH="coverage/TDD_PY$Round.coverage" NAME="Round Coverage Results" MODIFIED="1731774373698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tictactoe" />
     <SUITE FILE_PATH="coverage/TDD_PY$test_case.coverage" NAME="test_case Coverage Results" MODIFIED="1726132208325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />
-    <SUITE FILE_PATH="coverage/TDD_PY$.coverage" NAME=" Coverage Results" MODIFIED="1731665068541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tictactoe/tests" />
+    <SUITE FILE_PATH="coverage/TDD_PY$.coverage" NAME=" Coverage Results" MODIFIED="1731768258460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tictactoe/tests" />
     <SUITE FILE_PATH="coverage/TDD_PY$bootstrap.coverage" NAME="bootstrap Coverage Results" MODIFIED="1726171248760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit/bootstrap" />
     <SUITE FILE_PATH="coverage/TDD_PY$test_case_bootstrap.coverage" NAME="test_case_bootstrap Coverage Results" MODIFIED="1726132683202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />
     <SUITE FILE_PATH="coverage/TDD_PY$was_run.coverage" NAME="was_run Coverage Results" MODIFIED="1726132564763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xunit" />

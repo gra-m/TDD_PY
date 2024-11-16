@@ -87,20 +87,16 @@ class Board:
 
         for i in range(self.size):
             if np.all(self._pieces[i, :] == player) or np.all(self._pieces[:, i] == player):
-                print("row/col WIN")
                 return True
 
         if np.all(np.diag(self._pieces) == player) or np.all(np.diag(np.fliplr(self._pieces)) == player):
-            print("diagonal WIN")
             return True
 
-        print("NO WIN")
         return False
 
     def execute_move(self, player: int, action: int):
         """Perform the given action on the board"""
         try:
-            print(f"valid moves before executing move are: ${self.get_valid_moves()}")
             assert self.get_valid_moves()[action] == WHITE_ONE, "Invalid move: Attempting to play in a non-empty square."
             three_d_move: tuple[int, int] = (action // self.size,  action % self.size)
             self.__setitem__(three_d_move, player)

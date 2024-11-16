@@ -21,10 +21,7 @@ class TicTacToe(Game, ABC):
     def get_game_ended(self, board, player):
         # Return 1 if passed player has won
         if board.is_win(player):
-            return 1
-        # -1 if passed player has lost,
-        if board.is_win(-player):
-            return -1
+            return player
         # 0 if no-one has won but there is still a game to be had
         if board.has_valid_moves():
             return 0
